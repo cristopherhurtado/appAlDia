@@ -1,16 +1,12 @@
-import Constansts from 'expo-constants';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
-import FarmaTurno from './src/view/FarmaTurno';
-
+import { StatusBar } from "expo-status-bar";
+import { StyleSheet, View } from "react-native";
+import FarmaTurno from "./src/view/FarmaTurno";
 
 export default function App() {
   return (
     <View style={styles.container}>
-      
-        <FarmaTurno/>
-      
-      <StatusBar style='auto'/>
+      <FarmaTurno />
+      <StatusBar style="auto" />
     </View>
   );
 }
@@ -18,6 +14,5 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: Constansts.statusBarHeight,
   },
 });

@@ -1,11 +1,19 @@
 import React from 'react';
 import { Searchbar } from 'react-native-paper';
 import { StyleSheet } from 'react-native';
+import diacritic from 'diacritic';
 
 export default function Search(props) {
+  const handleTextChange = (text) => {
+    const trimmedText = text.trim().toUpperCase();
+    const textWithoutAccents = diacritic.clean(trimmedText);
+    props.onChangeText(textWithoutAccents);
+  };
+
   return (
-    <Searchbar style={styles.search}
-      onChangeText={text => props.onChangeText(text.trim().toUpperCase())}
+    <Searchbar
+      style={styles.search}
+      onChangeText={handleTextChange}
       value={props.value}
       placeholder="Buscar por comuna"
     />
@@ -13,8 +21,8 @@ export default function Search(props) {
 }
 
 const styles = StyleSheet.create({
-    search: {
-      margin: 5,
-    },
-    
-  });
+  search: {
+    margin: 5,
+  },
+});
+
